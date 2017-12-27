@@ -7,7 +7,7 @@
 .priceout{ color:#FF0042; padding-top:5px;}
 #price{ font-size:20px; font-weight:bold;}
 .yuan{ font-size: 12px; padding-right: 5px; }
-#desc{ color: #ab002c; font-size: 12px; padding-left: 10px; position: relative; bottom: 3px; }
+#desc{ color: #ab002c; font-size: 12px; padding-left: 10px; position: relative; bottom: 1px; }
 .xtubiaoout{ text-align: center; }
 @media (min-width: 480px){.xtubiao{ margin:0 5%; }}
 @media (min-width: 800px){.xtubiao{ margin:0 7%; }}

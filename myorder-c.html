@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name = "format-detection" content = "telephone=no">
+    <title>待发货订单</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/myorder.css">
+</head>
+
+<body>
+<div style="display:none" id="loadinglay" class="loading-indicator-overlay"><div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div></div>
+<script>
+    function showLoading(){document.getElementById("loadinglay").style.display='block';}
+    function hideLoading(){$(".loading-indicator-overlay").fadeOut();}
+    showLoading();   
+</script>
+<div class="header clearfix">
+    <a class="myordera" href=""><span class="headtabin"><span class="hide"></span></span>待付款</a>
+    <a class="myorderc myocolor" href=""><span class="headtabin"><span class="hide"></span></span>待发货</a>
+    <a class="myorderd" href=""><span class="headtabin"><span class="hide"></span></span>已发货</a>
+    <a class="myordere" href=""><span class="headtabin"><span class="hide"></span></span>已完成</a>
+    <a class="myorderf" href=""><span class="headtabin"><span class="hide"></span></span>退款/售后</a>
+</div> 
+    <div class="container mycontainer">
+    <div class="con">
+    </div>
+    </div>
+<div class="footer">
+<a class="orderliston" href="#"><span class="foottabin"></span>订单列表</a>
+<a class="news" href="#"><span class="foottabin"></span>消息</a>
+<a class="record" href="#"><span class="foottabin"></span>浏览记录</a>
+</div>
+    <div id="tip" style="display:none;"><span></span></div>
+<script src="js/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/myorder-c.js"></script>
+</body>
+
+</html>

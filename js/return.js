@@ -30,11 +30,12 @@ $("#return").bind("click", function() {
     } else {
         var reason = $("#reason1").val() + ' ' + $("#reason2").val() + ' ' + $("#reason3").val() + ' ' + $("#reason4").val() + ' ' + $("#reason5").val();
         $.ajax({
-            url: myurl.returnurl.replace(myurl.token.oid, params.oid),
+            url: myurl.returnurl,
             type: 'post',
             dataType: 'json',
             data: {
-                reason: reason
+                reason: reason,
+                oid:params.oid
             },
         beforeSend: function(XMLHttpRequest){
             showLoading();

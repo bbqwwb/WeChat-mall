@@ -18,115 +18,155 @@ $(function(){
 				code:params.code
 			},
 			success:function(data, status){
-				params.openid = data.openid;
+				location.href = myurl.detailsurl+'?pid='+params.pid+'&openid='+data.openid;
 			},
 			error:function(xhr, str, e){
 				tips(e,error.system);
 			}
 		});
-	}
-	$.ajax({
-		url:myurl.jsconfigurl,
-		type:'get',
-		dataType:'json',
-		data:{
-			url:location.href
-		},
-		success:function(data, status){
-			if (data.code == 0){
-				wx.config({
-					debug:config.debug,
-				    appId: data.data.appId, 
-				    timestamp: data.data.timestamp, 
-				    nonceStr: data.data.nonceStr, 
-				    signature: data.data.signature,
-				    jsApiList: [
-				    'openAddress'
-				    ]
-				});
-			}else{
-				tips(null,data.desc);
-			}
-		},
-		error:function(xhr, str, e){
-			tips(e,error.system);
-		}
-	});
-	$.ajax({
-		url:myurl.producturl.replace(myurl.token.pid, params.pid),
-		type:'get',
-		dataType:'json',
-		beforeSend:function (XMLHttpRequest) {
-		},
-		success:function(data, status) {
-			if (data.code == 0) { 
-				if(data.data.status == 3){
-					var priceView = (data.data.models[0].price/100).toFixed(2);
-					$(".mycontainer").prepend('<img class="fullwidth" src="'+myurl.mip+'products/'+data.data.id+'.jpg" alt="">');
-					$("#pro-name").html(data.data.name);
-					$("#desc").html(data.data.desc);
-					$("#price").html(priceView);
-					for(var i=0; i<data.data.models.length; i++){
-						if(data.data.models[i].stock !== 0){
-							$("#properties").append('<font data-id="'+data.data.models[i].id+'" data-price="'+data.data.models[i].price+'">'+data.data.models[i].name+'<i></i></font>');
-							$(".myguige font:first-child").addClass("myactive");
-						}
-					}
-					// 规格选择
-					$('.myguige font').bind('click', function() {
-						$(this).addClass('myactive').siblings().removeClass('myactive');
-						var pricechange = ($(this).data("price")/100).toFixed(2);
-						$(".price em").html(pricechange);
-					 });
+	}else{
+		$.ajax({
+			url:myurl.jsconfigurl,
+			type:'get',
+			dataType:'json',
+			data:{
+				url:location.href
+			},
+			success:function(data, status){
+				if (data.code == 0){
+					wx.config({
+						debug:mall.config.debug,
+					    appId: data.data.appId, 
+					    timestamp: data.data.timestamp, 
+					    nonceStr: data.data.nonceStr, 
+					    signature: data.data.signature,
+					    jsApiList: [
+					    'openAddress'
+					    ]
+					});
 				}else{
-					document.location.href = myurl.soldurl;
+					tips(null,data.desc);
 				}
-			} else {
-				tips(null,data.desc);
+			},
+			error:function(xhr, str, e){
+				tips(e,error.system);
 			}
-		},
-		error:function(xhr, str, e){
-			tips(e,error.system);
-		},
-		complete:function(){
-			hideLoading();
-		}
-	});
+		});
+		$.ajax({
+			url:myurl.producturl.replace(myurl.token.pid, params.pid),
+			type:'get',
+			dataType:'json',
+			beforeSend:function (XMLHttpRequest) {
+			},
+			success:function(data, status) {
+				if (data.code == 0) { 
+					if(data.data.status == 1){
+						var lpoint = "";
+						var playimg = "";
+						var detailimg = "";
+						$.each(data.data.images, function(i, v){
+							playimg += '<div class="item"><img src="'+myurl.rooturl+data.data.images[i]+'"></div>';
+							lpoint += '<li data-target="#myCarousel" data-slide-to="'+i+'"></li>';
+						});
+						$.each(data.data.images, function(i, v){
+							detailimg +='<img src="'+myurl.rooturl+data.data.detailImages[i]+'">';
+						});
+						$("#coverimg").append(playimg);
+						$("#locationpoint").append(lpoint);
+						$(".detailimg").append(detailimg);
+						$("#locationpoint li:first-child").addClass("active");
+						$("#coverimg div:first-child").addClass("active");
+						$("#pro-name").html(data.data.name);
+						$("#desc").html(data.data.desc);
+						for(var i=0; i<data.data.models.length; i++){
+							if(data.data.models[i].stock !== 0){
+								$("#properties").append('<font data-id="'+data.data.models[i].id+'" data-price="'+data.data.models[i].price+'">'+data.data.models[i].name+'<i></i></font>');
+							}
+						}
+						var priceView = ($(".myguige font:first-child").data("price")/100).toFixed(2);
+						$("#price").html(priceView);
+						$(".myguige font:first-child").addClass("myactive");
+						// 规格选择
+						$('.myguige font').bind('click', function() {
+							$(this).addClass('myactive').siblings().removeClass('myactive');
+							var pricechange = ($(this).data("price")/100).toFixed(2);
+							$("#price").html(pricechange);
+						 });
+					}else{
+						document.location.href = myurl.soldurl;
+					}
+				} else {
+					tips(null,data.desc);
+				}
+				$.ajax({
+					url:myurl.getevaluateurl,
+					type:'get',
+					dataType:'json',
+					data:{
+						pid:params.pid
+					},
+					success:function(data, status){
+						if (data.code == 0){
+							var star=Math.ceil(data.data.statistics.averageRating*2);
+							if(star == 0){
+								$('.evaluate').remove();
+							}else{
+								$('.starcount').append('<img src="images/star'+star+'.jpg"><em>'+data.data.statistics.averageRating+'</em>分');
+								$('.peoplecount').append('<em>'+data.data.statistics.totalCount+'</em>人评价');
+								if(data.data.records.length>=6){
+									for(var i=0; i<6; i++){
+										$('.evaluatecon').append('<span>'+data.data.records[i].comment.substr(0,8)+'...</span>')
+									}
+								}else{
+									for(var i=0; i<data.data.records.length; i++){
+										$('.evaluatecon').append('<span>'+data.data.records[i].comment.substr(0,8)+'...</span>')
+									}
+								}
+							}
+						} else {
+							tips(null,data.desc);
+						}
+					},
+					error:function(xhr, str, e){
+						tips(e,error.system);
+					}
+				});
+			},
+			error:function(xhr, str, e){
+				tips(e,error.system);
+			},
+			complete:function(){
+				hideLoading();
+			}
+		});
+	}
 });
 
 $("#beforeadd").bind('click', function() {
 	wx.openAddress({
 	  success: function (res) {
-	  alert("success1");
 	  $("#userName").text(res.userName);
 	  $("#telNumber").text(res.telNumber);
 	  $("#detailAddress").text(res.provinceName+res.cityName+res.countryName+res.detailInfo);
 	  $("#beforeadd").hide();
 	  $("#afteradd").show();
-	  alert("success2");
 	  },
 	  cancel: function (res) {
-	  alert("scancel");
 	  },
 	  fail: function (res) {
-	  alert("fail");
 	  }
 	});
 });
 $("#afteradd").bind('click', function() {
 	wx.openAddress({
 	  success: function (res) {
-	  alert("success1");
 	  $("#userName").text(res.userName);
 	  $("#telNumber").text(res.telNumber);
 	  $("#detailAddress").text(res.provinceName+res.cityName+res.countryName+res.detailInfo);
-	  alert("success2");
 	  },
 	  cancel: function (res) {
-	  	alert("scancel");
 	  },
 	  fail: function (res) {
-	  	alert("fail");
 	  }
 	});
 });
@@ -147,7 +187,6 @@ $("#jumppay").bind("click",function(){
 			data:{
 				pmid:pmid,
 				quantity:quantity,
-				price:price,
 				note:'已提交订单',
 				name:userName,
 				phone:telNumber,

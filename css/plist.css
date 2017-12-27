@@ -18,47 +18,11 @@ body{ background: #eeeeee; }
 /* item end*/
 #pricesum {word-wrap: break-word;}
 .wcallpay,.otherpay{ font-size: 16px; }
-.jifen{ background: #fff; padding: 10px; border-top: 1px solid #ececec; }
-.jifen label{ margin: 0; font-weight: normal; color: #333; width: 100%;}
-.jifen_num{ color:#ff0042; padding-right:4px; }
-.iradio_square-red{ float: right; }
-
-/* 抽奖 */
-.lineg{ height: 50px; height: 50px;color: #ff0042;text-align: center;line-height: 50px;font-size: 16px; }
-.cj_top{ height: 165px; }
-.choujiang{ width: 300px; margin: 30px auto;  background: url('../images/choujiang_bg.jpg') no-repeat; background-size:300px;  color: #fff;margin-top: -5px;font-size: 18px; height: 325px;}
-.slotMachineButton { display: inline-block; color: #fff;  height: 49px; line-height: 49px; width: 207px; text-decoration: none; text-align: center; cursor: pointer; }
-.slotMachineButton:active { position: relative; top: 1px; }
-.slotMachine { width: 264px; height: 76px; overflow: hidden; display: inline-block; text-align: center; margin-top: 62px;}
-.noBorder { border: none !important; background: transparent !important; font: 14px arial; width: 280px; margin-top: 0px;height: 22px;font-size: 16px;color: #f80544; line-height: 22px;}
-.slotMachine .slot { width: 244px; height: 76px; background-size: 244px; margin: 0 auto;}
-.slot0 { background-image: url("../images/cj0.png"); }
-.slot1 { background-image: url("../images/cj1.png"); }
-.slot2 { background-image: url("../images/cj2.png"); }
-.slot3 { background-image: url("../images/cj3.png"); }
-.slot4 { background-image: url("../images/cj4.png"); }
-.slot5 { background-image: url("../images/cj5.png"); }
-.slot6 { background-image: url("../images/cj0.png"); }
-.slot7 { background-image: url("../images/cj0.png"); }
-.slot8 { background-image: url("../images/cj0.png"); }
-.slot9 { background-image: url("../images/cj1.png"); }
-.slot10 { background-image: url("../images/cj1.png"); }
-.slot11 { background-image: url("../images/cj0.png"); }
-.slot12 { background-image: url("../images/cj0.png"); }
-.slot13 { background-image: url("../images/cj0.png"); }
-.slot14 { background-image: url("../images/cj0.png"); }
-/* 抽奖 */
-/* 优惠 */
-.youhui{ padding-top: 5px;margin-top: 10px;color: #ff0042;border-top: 1px solid #f3f3f3; }
-.youhui span:first-child{ float: left; }
-.youhui span:last-child{ float: right; }
-/* 优惠 */
-
 /* bottom */
 .bottom{ width: 100%; position: fixed; bottom:0; height: 51px; border-top:1px solid #eeeeee; z-index: 999;}
-.buy{ width:50%; background:#999; color:#fff; font-size:22px; text-align:center; padding:10px 0; height: 50px; float: right;}
+.buy{ width:50%; background:#f80544; color:#fff; font-size:22px; text-align:center; padding:10px 0; height: 50px; float: right;}
 .back{color: #333333; width: 50%; float: left; background: #fff; text-align: center; font-size:22px; height: 50px; display: block;padding-top: 10px;}
 .back img{ width: 25px; vertical-align:top;display: inline-block;}
 .back span{line-height: 25px; height: 25px;display: inline-block;}
-.xufu{ width: 100%; background: #fff; text-align: center; padding:10px 0;bottom: 50px; position: fixed; }
+.xufu{ width: 100%; background: #fff; margin-top: 10px; text-align: center; padding:10px 0; }
 .xufu em{color: #ff0042;}

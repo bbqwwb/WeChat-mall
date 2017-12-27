@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name = "format-detection" content = "telephone=no">
-    <title>评价</title>
+    <title>待付款订单</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/evaluate.css">
+    <link rel="stylesheet" href="css/myorder.css">
 </head>
 
 <body>
@@ -18,25 +18,28 @@
     function showLoading() {document.getElementById("loadinglay").style.display = 'block';}
     function hideLoading() {$(".loading-indicator-overlay").fadeOut();}
     showLoading();
-    </script>   
+    </script>
+<div class="header clearfix">
+    <a class="myordera myocolor" href=""><span class="headtabin"><span class="hide"></span></span>待付款</a>
+    <a class="myorderc" href=""><span class="headtabin"><span class="hide"></span></span>待发货</a>
+    <a class="myorderd" href=""><span class="headtabin"><span class="hide"></span></span>已发货</a>
+    <a class="myordere" href=""><span class="headtabin"><span class="hide"></span></span>已完成</a>
+    <a class="myorderf" href=""><span class="headtabin"><span class="hide"></span></span>退款/售后</a>
+</div>    
     <div class="container mycontainer">
     <div class="con">
-        <div class="item">
-            <div class="itembottom clearfix">
-            <button type="button" class="btn btn-sm haoping"><span class="glyphicon glyphicon-star ccolor"></span> 好评</button>
-            <button type="button" class="btn btn-sm mywarning"><span class="glyphicon glyphicon-star"></span> 中评</button>
-            <button type="button" class="btn btn-sm mydefault"><span class="glyphicon glyphicon-star"></span> 差评</button>
-            </div>
-            <textarea class="comment" placeholder="亲，写点什么吧，您的意见对其他用户有很大的帮助！"></textarea>
-        </div>
     </div>
     </div>
-<div class="bottom"><div class="tick"><input type="checkbox" checked ><em>匿名评价</em></div><div class="fabiao">发表评价</div></div>
+<div class="footer">
+<a class="orderliston" href="#"><span class="foottabin"></span>订单列表</a>
+<a class="news" href=""><span class="foottabin"></span>消息</a>
+<a class="record" href=""><span class="foottabin"></span>浏览记录</a>
+</div>
     <div id="tip" style="display:none;"><span></span></div>
     <script src="js/jquery.min.js"></script>
     <script src="js/common.js"></script>
-    <script src="js/icheck.min.js"></script>
-    <script src="js/evaluate.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+    <script src="js/myorder-a.js"></script>
 </body>
 
 </html>

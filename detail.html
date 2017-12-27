@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name = "format-detection" content = "telephone=no">
+    <title>商品详情</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/detail.css">
+</head>
+
+<body>
+<div style="display:none" id="loadinglay" class="loading-indicator-overlay"><div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div></div>
+<script>
+    function showLoading(){document.getElementById("loadinglay").style.display='block';}
+    function hideLoading(){$(".loading-indicator-overlay").fadeOut();}
+    showLoading();
+</script>
+<div class="container mycontainer">
+    <div class="address clearfix">
+        <div class="glogray3 " id="afteradd" style="display:none;">
+            <span class="gloleft">收货人：<em id="userName"></em></span><span class="gloright" id="telNumber"></span>
+            <br>
+            <span>收货地址：<em id="detailAddress"></em></span>
+        </div>
+        <div id="beforeadd">点击添加收货地址</div>
+        <div class="line"></div>
+    </div>
+    <div id="myCarousel" class="carousel slide">
+        <ol class="carousel-indicators" id="locationpoint">
+<!--            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+             <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li> -->
+        </ol>
+        <div class="carousel-inner" id="coverimg">
+<!--             <div class="item active">
+                <img src="images/d2.jpg" >
+            </div>
+            <div class="item">
+                <img src="images/d3.jpg" >
+            </div>
+            <div class="item">
+                <img src="images/d4.jpg">
+            </div> -->
+        </div>
+    </div>
+    <div class="row biaoti">
+        <div class="col-xs-12">
+            <div><span id="tabhot">热 卖</span><span id="pro-name"></span></div>
+            <div class="priceout"><em class="yuan">&yen;</em><em id="price"></em><em id="desc"></em></div>
+        </div>
+    </div>
+    <div class="row xtubiaoout">
+        <span class="xtubiao"><img src="images/ico1.jpg"><span>正品行货</span></span>
+        <span class="xtubiao"><img src="images/ico2.jpg"><span>七天退换</span></span>
+        <span class="xtubiao"><img src="images/ico3.jpg"><span>当天发货</span></span>
+        <span class="xtubiao"><img src="images/ico4.jpg"><span>正规发票</span></span>
+    </div>
+    <div class="row shuxing">
+        <div class="pad1 clearfix">
+            <div class="guigetit">规格</div>
+            <div id="properties" class="myguige">
+            </div>
+        </div>
+    </div>
+    <div class="evaluate">
+        <div class="evaluateinner">
+            <div class="evaluatehead clearfix">
+                <div class="starcount"></div>
+                <div class="peoplecount"></div>
+            </div>
+            <div class="evaluatecon clearfix"></div>
+        </div>
+    </div>
+    <div class="detailimg">
+        <div class="detailimghead">
+            <div class="detailimgheadin">
+                <div class="moredetail">继续拖动，查看图文详情</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bottom">
+    <div class="mynumdiv2">
+        <em class="mycut"></em>
+        <input type="text" value="1" class="mynumber" id="quantity" />
+        <em class="myadd"></em>
+    </div>
+    <div class="buy" id="jumppay">立即抢购</div>
+</div>
+<div id="tip" style="display:none;"><span></span></div>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/fastclick.js"></script>
+<script src="js/callorder.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/touch.js"></script>
+</body>
+</html>

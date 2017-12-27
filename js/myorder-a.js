@@ -18,75 +18,82 @@ if (!params.openid) {
         },
         success:function(data, status){
             params.openid = data.openid;
-            $('.myorderc').attr('href',myurl.curl.replace(myurl.token.openid, params.openid));
-            $('.myorderd').attr('href',myurl.durl.replace(myurl.token.openid, params.openid));
-            $('.myordere').attr('href',myurl.eurl.replace(myurl.token.openid, params.openid));
-            $('.myorderf').attr('href',myurl.furl.replace(myurl.token.openid, params.openid));
+			location.href=myurl.aurl.replace(myurl.token.openid, params.openid);
         },
         error:function(xhr, str, e){
             tips(e,error.system);
         }
     });
 }else{
-    $('.myorderc').attr('href',myurl.curl.replace(myurl.token.openid, params.openid));
-    $('.myorderd').attr('href',myurl.durl.replace(myurl.token.openid, params.openid));
-    $('.myordere').attr('href',myurl.eurl.replace(myurl.token.openid, params.openid));
-    $('.myorderf').attr('href',myurl.furl.replace(myurl.token.openid, params.openid));
+    $('.myordera').attr('href',myurl.aurl.replace(myurl.token.openid, params.openid)+'&random='+parseInt(Math.random()*500000));
+    $('.myorderc').attr('href',myurl.curl.replace(myurl.token.openid, params.openid)+'&random='+parseInt(Math.random()*500000));
+    $('.myorderd').attr('href',myurl.durl.replace(myurl.token.openid, params.openid)+'&random='+parseInt(Math.random()*500000));
+    $('.myordere').attr('href',myurl.eurl.replace(myurl.token.openid, params.openid)+'&random='+parseInt(Math.random()*500000));
+    $('.myorderf').attr('href',myurl.furl.replace(myurl.token.openid, params.openid)+'&random='+parseInt(Math.random()*500000));
+	loadData();
 }
-    $.ajax({
-        url:myurl.jsconfigurl,
-        type:'get',
-        dataType:'json',
-        data:{
-            url:location.href
-        },
-        success:function(data, status){
-            if (data.code == 0){
-                wx.config({
-					debug: config.debug,
-                    appId: data.data.appId, 
-                    timestamp: data.data.timestamp, 
-                    nonceStr: data.data.nonceStr, 
-                    signature: data.data.signature,
-                    jsApiList: [
-                    'chooseWXPay'
-                    ]
-                });
-            }else{
-                tips(null,data.desc);
-            }
-        },
-        error:function(xhr, str, e){
-            tips(e,error.system);
-        }
-    });
-    $.ajax({
-        url: myurl.openidurl.replace(myurl.token.openid, params.openid),
+	function loadData() {    
+		$.ajax({
+			url:myurl.jsconfigurl,
+			type:'get',
+			dataType:'json',
+			data:{
+				url:location.href
+			},
+			success:function(data, status){
+				if (data.code == 0){
+					wx.config({
+						debug: mall.config.debug,
+						appId: data.data.appId, 
+						timestamp: data.data.timestamp, 
+						nonceStr: data.data.nonceStr, 
+						signature: data.data.signature,
+						jsApiList: [
+						'chooseWXPay'
+						]
+					});
+				}else{
+					tips(null,data.desc);
+				}
+			},
+			error:function(xhr, str, e){
+				tips(e,error.system);
+			}
+		});
+		
+		$.ajax({
+        url: myurl.openidurl,
         type: 'get',
         dataType: 'json',
+        data:{
+            openid:params.openid
+        },
         success: function(data, status) {
             if (data.code == 0) {
-                for (var i = 0; i < data.data.length; i++) {
-                    if (data.data[i].status == 0) {
-                        var pricesum = (data.data[i].price * data.data[i].quantity / 100).toFixed(2);
-                        $(".myordera span span").attr("class", "hint");
-                        $('.con').prepend('<div class="item"><div class="itemtop clearfix"><span class="showoid">订单号：' + data.data[i].oid + '</span><span class="status">待付款</span></div><div class="itemcenter clearfix"><div class="centerleft"><img src="images/d2.jpg"></div><div class="centerright"><div class="inf">' + data.data[i].productName + '</div><div class="infcount"><span>&times;' + data.data[i].quantity + '</span><span class="heji"><em>合计：</em>&yen;' + pricesum + '</span></div></div></div><div class="itembottom clearfix"><input value="取消" class="btn btn-sm cancel" type="button" /><input value="付款" class="btn btn-sm btn-warning wcallpay" type="button" /></div>');
-                    } else if (data.data[i].status == 1) {
-                        $(".myorderc span span").attr("class", "hint");
-                    } else if (data.data[i].status == 2) {
-                        $(".myorderd span span").attr("class", "hint");
-                    } else if (data.data[i].status == 3) {
-                        $(".myordere span span").attr("class", "hint");
-                    } else if (data.data[i].status == 4) {
-                        $(".fa-truck span").attr("class", "hint");
+                for (var i = 0; i < data.data.records.length; i++) {
+                    if (data.data.records[i].status == 0) {
+                        mall.hint.unpay++;
+                        $('.con').prepend('<div class="item"><div class="itemtop clearfix"><span class="showoid">订单号：' + data.data.records[i].oid + '</span><span class="status">待付款</span></div><div class="itemcenter clearfix"><div class="centerleft"><img src="'+myurl.imgurl.replace(myurl.token.imgfile, data.data.records[i].productIndex).replace(myurl.token.imgname, data.data.records[i].productIndex)+'"></div><div class="centerright"><div class="inf">' + data.data.records[i].productName + '</div><div class="infcount"><span>&times;' + data.data.records[i].quantity + '</span><span class="heji"><em>合计：</em>&yen;' + (data.data.records[i].price/100).toFixed(2) + '</span></div></div></div><div class="itembottom clearfix"><input value="取消" class="btn mydefault btn-sm cancel" type="button" /><input value="付款" class="btn btn-sm mywarning wcallpay" type="button" /></div></div>');
+                    } else if (data.data.records[i].status == 1) {
+                        mall.hint.unship++;
+                    } else if (data.data.records[i].status == 2 || data.data.records[i].status == 9) {
+                        mall.hint.shipped++;
+                    } else if (data.data.records[i].status == 3 || data.data.records[i].status == 4 || data.data.records[i].status == 8) {
+                        mall.hint.service++;
+                    } else if (data.data.records[i].status == 10) {
+                        mall.hint.unevaluate++;
                     }
                 }
+                setHint();
                 $(".cancel").bind("click", function() {
                     var oid = ($(this).parent().prev().prev().children(".showoid").text()).split("：")[1];
                     $.ajax({
                         type: 'post',
-                        url: myurl.cancelorderurl.replace(myurl.token.oid, oid), 
+                        url: myurl.cancelorderurl, 
                         dataType: 'json',
+                        data:{
+                            oid:oid
+                        },
                         success: function(data, status) {
                             tips(null,data.desc,function(){
                             window.location.reload();
@@ -101,14 +108,13 @@ if (!params.openid) {
                 $(".wcallpay").bind("click", function() {
                     showLoading();
                     var oid = ($(this).parent().prev().prev().children(".showoid").text()).split("：")[1];
-                    //var paypricesum = $(this).prev().prev().text();
                     $.ajax({
-                        url:myurl.payurl.replace(myurl.token.oid, oid),
+                        url:myurl.payurl,
                         type:'post',
                         dataType:'json',
                         data:{
-                            pay_type:0,
-                            out_user_id:params.openid
+                            payerId:params.openid,
+                            oid:oid
                         },
                         success:function(data, status){
                             if (data.code == 0){
@@ -151,4 +157,5 @@ if (!params.openid) {
             hideLoading();
         }
     });
+	} 
 });

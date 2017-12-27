@@ -26,7 +26,7 @@ $.ajax({
 				nonceStr = data.data.nonceStr;
 				signature = data.data.signature;
                 wx.config({
-					debug: config.debug,
+					debug: mall.config.debug,
                     appId: appId, 
                     timestamp: timestamp, 
                     nonceStr: nonceStr, 
@@ -46,17 +46,19 @@ $.ajax({
 
 
     $.ajax({
-        url: myurl.oidurl.replace(myurl.token.oid, params.oid),
+        url: myurl.oidurl,
         type: 'get',
         dataType: 'json',
+        data:{
+            oid:params.oid
+        },
         success: function(data, status) {
             if (data.code == 0) {
-                var pricesum = (data.data.price * data.data.quantity / 100).toFixed(2);
-                $(".mycontainer").append("<div class='item'><div class='itemtop clearfix'><span class='showoid'>订单号："+data.data.oid+"</span><span class='status'>待付款</span></div><div class='itemcenter clearfix'><div class='centerleft'><img src='images/d2.jpg'></div><div class='centerright'><div class='inf'>"+data.data.productName+"</div><div class='infcount'><span>&times;"+data.data.quantity+"</span><span class='heji'><em>合计：</em>&yen;"+pricesum+"</span></div></div></div></div>");
-                $("#receivername").html(data.data.receiverName);
-                $("#receivercontact").html(data.data.receiverContact);
-                $("#receiveraddress").html(data.data.receiverAddress);
-                $("#pricesum").html(pricesum);
+                $(".mycontainer").append("<div class='item'><div class='itemtop clearfix'><span class='showoid'>订单号："+data.data.records[0].oid+"</span><span class='status'>待付款</span></div><div class='itemcenter clearfix'><div class='centerleft'><img src='"+myurl.imgurl.replace(myurl.token.imgfile, data.data.records[0].productIndex).replace(myurl.token.imgname, data.data.records[0].productIndex)+"'></div><div class='centerright'><div class='inf'>"+data.data.records[0].productName+"</div><div class='infcount'><span>&times;"+data.data.records[0].quantity+"</span><span class='heji'><em>合计：</em>&yen;"+(data.data.records[0].price/100).toFixed(2)+"</span></div></div></div></div>");
+                $("#receivername").html(data.data.records[0].receiverName);
+                $("#receivercontact").html(data.data.records[0].receiverContact);
+                $("#receiveraddress").html(data.data.records[0].receiverAddress);
+                $("#pricesum").html((data.data.records[0].price/100).toFixed(2));
             } else {
                 tips(null,data.desc);
             }
@@ -73,12 +75,12 @@ $.ajax({
 $(".wcallpay").bind("click",function(){
     showLoading();
     $.ajax({
-        url:myurl.payurl.replace(myurl.token.oid, params.oid),
+        url:myurl.payurl,
         type:'post',
         dataType:'json',
         data:{
-            pay_type:0,
-            out_user_id:params.openid
+            payerId:params.openid,
+            oid:params.oid
         },
         success:function(data, status){
             if (data.code == 0){

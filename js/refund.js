@@ -10,11 +10,12 @@ $("#refund").bind("click",function(){
     }else{
     	var reason = $("#reason1").val()+$("#reason2").val();
         $.ajax({
-        url:myurl.refundurl.replace(myurl.token.oid, params.oid),
+        url:myurl.refundurl,
         type:'post',
         dataType: 'json',
         data:{
-            reason:reason
+            reason:reason,
+            oid:params.oid
         },
         beforeSend: function(XMLHttpRequest){
             showLoading();

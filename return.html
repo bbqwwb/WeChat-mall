@@ -15,11 +15,11 @@
 
 <body>
 <div style="display:none" id="loadinglay" class="loading-indicator-overlay"><div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div></div>
-<!-- <script>
+<script>
     function showLoading(){document.getElementById("loadinglay").style.display='block';}
     function hideLoading(){$(".loading-indicator-overlay").fadeOut();}
     showLoading();
-</script> -->
+</script>
     <div class="container mycontainer">
     <p class="tit">请认真填写退货信息，我们会尽快为您审批！<br>如对退货流程有疑问，请到我们公众号联系客服！</p>
     <div class="form-group">
@@ -54,40 +54,7 @@
     <div id="tip" style="display:none;"><span></span></div> 
 <script src="js/jquery.min.js"></script>
 <script src="js/common.js"></script>
-<script>
-$("#return").bind("click",function(){
-    if ($("#reason1").val() == "") {
-        $("#tip span").html("请选择退货原因");
-        $("#tip").fadeIn("slow");
-        setTimeout(function() {
-            $("#tip").fadeOut("slow");
-        }, 2000);
-    } else if ($("#reason2").val() == "") {
-        $("#tip span").html("请选择物流公司");
-        $("#tip").fadeIn("slow");
-        setTimeout(function() {
-            $("#tip").fadeOut("slow");
-        }, 2000);
-    } else if ($("#reason3").val() == "") {
-        $("#tip span").html("请填写物流单号");
-        $("#tip").fadeIn("slow");
-        setTimeout(function() {
-            $("#tip").fadeOut("slow");
-        }, 2000);
-        $("#reason3").focus();
-    } else if ($("#reason4").val() == "") {
-        $("#tip span").html("请填写联系电话");
-        $("#tip").fadeIn("slow");
-        setTimeout(function() {
-            $("#tip").fadeOut("slow");
-        }, 2000);
-        $("#reason4").focus();
-    } else{
-       window.location.href = "myorder-f-test.html";
-    }
-
-});
-</script>
+<script src="js/return.js"></script>
 </body>
 
 </html>
