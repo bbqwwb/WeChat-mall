@@ -1,0 +1,16 @@
+.tit{background:url(../images/tit.png) no-repeat;width:255px;height:50px;margin:0 auto;}
+.tit h2{margin:10px 0px;color:#fff;text-align:center;line-height:44px;font-size:1.5em; }
+.k1{ background:#fff; border:1px solid #ddd; float:left; }
+.k1 a{ text-decoration:none; }
+.k1 p{ margin:0; color:#000; }
+.k1 img{width:100%; }
+@media screen and (max-width:768px){
+	.k1{width:48%; padding: 2%; margin:1%;}
+}
+@media screen and (min-width:768px){
+	.k1{width:31%; padding: 1%; margin:1.1%;}
+}
+.carousel-inner{ box-shadow:0px 6px 5px #C1C1C1; -webkit-box-shadow:0px 6px 5px #C1C1C1; -moz-box-shadow:0px 6px 5px #C1C1C1; -ms-box-shadow:0px 6px 5px #C1C1C1; -o-box-shadow:0px 6px 5px #C1C1C1; margin-bottom:10px; }
+
+.fenlei{ width:100%; }
+.fenlei img{ width:100%;  margin-bottom:10px;}

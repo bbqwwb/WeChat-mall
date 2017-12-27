@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name = "format-detection" content = "telephone=no">
+    <title>待评价订单</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/myorder.css">
+</head>
+
+<body>
+<div style="display:none" id="loadinglay" class="loading-indicator-overlay"><div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div></div>
+<!-- <script>
+    function showLoading(){document.getElementById("loadinglay").style.display='block';}
+    function hideLoading(){$(".loading-indicator-overlay").fadeOut();}
+    showLoading();   
+</script> -->
+<div class="header clearfix">
+    <a class="myordera" href="myorder-a-test.html"><span class="headtabin"><span class="hint">1</span></span>待付款</a>
+    <a class="myorderc" href="myorder-c-test.html"><span class="headtabin"><span class="hide"></span></span>待发货</a>
+    <a class="myorderd" href="myorder-d-test.html"><span class="headtabin"><span class="hide"></span></span>已发货</a>
+    <a class="myordere myocolor" href="#"><span class="headtabin"><span class="hide"></span></span>待评价</a>
+    <a class="myorderf" href="myorder-f-test.html"><span class="headtabin"><span class="hide"></span></span>退款/售后</a>
+</div> 
+    <div class="container mycontainer">
+    <div class="con">
+        <div class="item">
+            <div class="itemtop clearfix"><span class="showoid">订单号：132165416516514651651</span><span class="status">待评价</span></div>
+            <div class="itemcenter clearfix"><div class="centerleft"><img src="images/d2.jpg"></div><div class="centerright"><div class="inf">Apple iphone SE苹果手机港版移动联通4G手机 玫瑰金色 16G</div><div class="infcount"><span>&times;2</span><span class="heji"><em>合计：</em>&yen;59999.99</span></div></div></div>
+            <div class="itembottom clearfix"><input value="评价" class="btn btn-sm mywarning evaluate" type="button" /></div>
+        </div>
+    </div>
+    </div>
+
+
+
+<div class="footer">
+<a class="orderliston" href="#"><span class="foottabin"></span>订单列表</a>
+<a class="news" href="news.html"><span class="foottabin"></span>消息</a>
+<a class="record" href="record.html"><span class="foottabin"></span>浏览记录</a>
+</div>
+    <div id="tip" style="display:none;"><span></span></div>
+<script src="js/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script>
+$(".evaluate").bind("click", function(){
+    window.location.href = "evaluate.html";
+});
+</script>
+</body>
+
+</html>

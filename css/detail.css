@@ -1,0 +1,61 @@
+.row{ width:100%; margin:0; padding:10px 0;}
+.carousel-indicators .active{background-color: #FF0042;border: 1px solid #FF0042; width: 10px; height: 10px;}
+.biaoti{ border-top: 1px solid #eeeeee; }
+.col-xs-12 span{ font-size: 16px; line-height: 18px; display: inline; }
+.mycontainer{ padding-bottom: 51px; }
+#tabhot{ background: #f80544; padding: 0px 6px; color: #fff; font-size: 12px; margin-right: 8px; float: left; height: 16px; line-height: 16px; }
+.priceout{ color:#FF0042; padding-top:5px;}
+#price{ font-size:20px; font-weight:bold;}
+.yuan{ font-size: 12px; padding-right: 5px; }
+#desc{ color: #ab002c; font-size: 12px; padding-left: 10px; position: relative; bottom: 3px; }
+.xtubiaoout{ text-align: center; }
+@media (min-width: 480px){.xtubiao{ margin:0 5%; }}
+@media (min-width: 800px){.xtubiao{ margin:0 7%; }}
+@media (max-width: 480px){.xtubiao{ margin:0 3%; }}
+@media (max-width: 400px){.xtubiao{ margin:0 2%; }}
+@media (max-width: 350px){.xtubiao{ margin:0 1%; }}
+@media (max-width: 320px){.xtubiao{ margin:0 0.5%; }}
+.xtubiao img{ width: 16px; margin-right: 3px; }
+.xtubiao span{ font-size: 12px;  color: #999999;}
+.guigetit,.myguige{ font-size:12px; float:left; line-height:37px;}
+.guigetit{ color:#8c8c8c; width:18%; text-align:center; font-size:14px;  }
+.myguige{color:#565656; width:82%; height:auto;}
+.myguige font{ padding:10px; line-height:15px; border:1px solid #eeeeee;  display:inline-block; position:relative; height:37px; font-size:14px; margin:4px;}
+
+.pad1{padding-bottom:10px;}
+.myguige .myactive{ border:1px solid #FF0042; }
+.myguige font i{display:none;}
+.myguige .myactive i{ display:block; width:9px; height:9px; position:absolute; right:0; bottom:0;  background:url(../images/icon2.png) no-repeat; background-size: 50px auto;-webkit-background-size: 50px auto; -moz-background-size: 50px auto; -msbackground-size: 50px auto;- -o-background-size: 50px auto;background-position: 0 0; }
+.bottom{ width: 100%; position: fixed; bottom:0; height: 51px; border-top:1px solid #eeeeee; z-index: 999;}
+.buy{ width:50%; background:#f80544; color:#fff; font-size:22px; text-align:center; padding:10px 0; height: 50px; float: right;cursor: pointer;}
+/*count*/
+.mycut,.myadd{ width:50px; height:50px; background:#fff;  text-align:center;}
+.mycut{float:left; background:url(../images/icon2.png) 0px -61px no-repeat; background-size: 50px auto;-webkit-background-size: 50px auto; -moz-background-size: 50px auto; -ms-background-size: 50px auto; -o-background-size: 50px auto;}
+.myadd{ float: right; background:url(../images/icon2.png) 0px -11px no-repeat; background-size: 50px auto;-webkit-background-size: 50px auto; -moz-background-size: 50px auto; -ms-background-size: 50px auto; -o-background-size: 50px auto;}
+.mynumber{ height:50px; line-height:50px; font-size:16px; text-align:center; border:none;}
+.mynumdiv2{ width: 50%; float: left; background: #fff; text-align: center;}
+@media (min-width: 480px){.mynumber{ width: 120px; }}
+@media (min-width: 800px){.mynumber{ width: 200px; }}
+@media (max-width: 480px){.mynumber{ width: 95px; }}
+@media (max-width: 400px){.mynumber{ width: 70px; }}
+@media (max-width: 350px){.mynumber{ width: 55px; }}
+@media (max-width: 320px){.mynumber{ width: 50px; }}
+/*count end*/
+#beforeadd{color: #ab002c; text-align: center; font-size: 16px; padding: 15px 0 10px 0;}
+#afteradd{ font-size: 12px;padding: 10px;}
+.line{ height: 4px; background: url(../images/icon2.png) 0px -111px repeat-x; background-size: 50px auto;-webkit-background-size: 50px auto; -moz-background-size: 50px auto; -ms-background-size: 50px auto; -o-background-size: 50px auto; }
+.shuxing{ padding-bottom: 0; }
+.item img{ width: 100%; }
+.evaluate{ width: 100%; padding-top: 20px; background: #eeeeee; }
+.evaluateinner{ width: 100%; padding: 10px; background: #fff; }
+.evaluatehead{ border-bottom: 1px solid #eeeeee;padding-bottom: 10px;}
+.starcount{ float: left; height: 25px; color:#ffbb00;line-height: 25px; }
+.starcount em{  font-size: 14px; display: inline-block; margin-left: 10px;}
+.starcount img{ width: 150px; float: left;}
+.peoplecount{ float: right; font-size: 16px;height: 25px;line-height: 25px;color: #999999;}
+.evaluatecon span{ color: #999999; margin: 10px 10px 0 10px;  float: left; word-break:break-all;}
+.detailimg{ width: 100%;  padding-bottom: 10px;}
+.detailimghead{background: #eeeeee;}
+.detailimgheadin{ margin: 0 10px;background: url(../images/icon2.png) 0px -231px repeat-x; height: 60px;line-height: 60px; text-align: center;}
+.moredetail{ background: #eeeeee; display: inline;padding: 10px;}
+.detailimg img{ width: 100%; }

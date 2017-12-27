@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name = "format-detection" content = "telephone=no">
+    <title>申请退款</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/return.css">
+</head>
+
+<body>
+<div style="display:none" id="loadinglay" class="loading-indicator-overlay"><div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div></div>
+<!-- <script>
+    function showLoading(){document.getElementById("loadinglay").style.display='block';}
+    function hideLoading(){$(".loading-indicator-overlay").fadeOut();}
+    showLoading();
+</script> -->
+    <div class="container mycontainer">
+    <p class="tit">请认真填写退款原因，我们会尽快为您审批！</p>
+    <div class="form-group">
+    <label><em>* </em>退款原因：</label>
+	<select id="reason1" class="form-control">
+	    <option>不想要</option>
+	    <option>买错</option>
+	    <option>买多</option>
+	    <option>其他</option>
+	</select>
+	</div>
+	<div class="form-group">
+	<label>退款说明：</label>
+	<textarea id="reason2" rows="3"></textarea>
+	</div>	
+	<input value="取消" class="btn btn-default btn-block" type="button" onclick="javascript:history.go(-1);">
+	<input value="提交" class="btn btn-default btn-block mybtn1" type="button" id="refund">
+    </div> 
+    <div id="tip" style="display:none;"><span></span></div>
+<script src="js/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script>
+$("#refund").bind("click",function(){
+    if($("#reason1").val() == ""){
+        $("#tip span").html("请选择退款原因");
+        $("#tip").fadeIn("slow");
+        setTimeout(function(){
+            $("#tip").fadeOut("slow");
+        },2000);
+    }else{
+       window.location.href = "myorder-f-test.html";
+    }
+
+});
+</script>
+</body>
+
+</html>

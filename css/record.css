@@ -1,0 +1,28 @@
+body{ background: #eeeeee; }
+.mycontainer{padding-bottom:70px;}
+/* item */
+.item{ width: 100%; padding: 10px; background: #fff; margin-bottom: 10px;}
+.itemtop{ font-size: 12px; color: #333333; }
+.itemcenter{padding-top:15px;}
+.centerleft{width: 32%; float:left;}
+.centerleft img{ width: 100%; border: 1px solid #eeeeee; }
+.centerright{width: 68%; float: left; padding-left: 10px;}
+@media (max-width: 375px){.centerright{ font-size: 14px;}}
+@media (min-width: 375px){.centerright{ font-size: 16px;}}
+.infcount{ margin-top: 5px; }
+.heji{color: #ff0042;}
+.mybnt{ background: #ffbb00; color: #fff; }
+.act{ text-align: right; }
+.act button{ float: right; }
+.fenxiang{ height: 30px; width: 40px; display: inline-block; margin-right: 10px; background: #000; background:url(../images/share.jpg) no-repeat;background-size: 40px auto;-webkit-background-size: 40px auto; -moz-background-size: 40px auto; -ms-background-size: 40px auto; -o-background-size: 40px auto; }
+/* item end*/
+.footer{border-top:1px solid #ddd; padding:10px 0; background:#fff; position:fixed; bottom:0px; width:100%; z-index:100; }
+.footer a { color:#707070; text-decoration:none; display:inline-block; width:33.3%; float:left; text-align:center; font-size:12px;}
+.foottabin{width: 32px; height: 32px; margin: 0 auto; display: block; position: relative;}
+.orderlist .foottabin{ background: url(../images/icon.jpg) 0 -192px no-repeat;background-size: 32px auto;-webkit-background-size: 32px auto; -moz-background-size: 32px auto; -ms-background-size: 32px auto; -o-background-size: 32px auto; }
+.news .foottabin{ background: url(../images/icon.jpg) 0 -256px no-repeat;background-size: 32px auto;-webkit-background-size: 32px auto; -moz-background-size: 32px auto; -ms-background-size: 32px auto; -o-background-size: 32px auto; }
+.record .foottabin{ background: url(../images/icon.jpg) 0 -320px no-repeat;background-size: 32px auto;-webkit-background-size: 32px auto; -moz-background-size: 32px auto; -ms-background-size: 32px auto; -o-background-size: 32px auto; }
+.footer .orderliston,.footer .newson,.footer .recordon{ color:#FF0042;}
+.orderliston .foottabin{ background: url(../images/icon.jpg) 0 -160px no-repeat;background-size: 32px auto;-webkit-background-size: 32px auto; -moz-background-size: 32px auto; -ms-background-size: 32px auto; -o-background-size: 32px auto;}
+.newson .foottabin{ background: url(../images/icon.jpg) 0 -224px no-repeat;background-size: 32px auto;-webkit-background-size: 32px auto; -moz-background-size: 32px auto; -ms-background-size: 32px auto; -o-background-size: 32px auto;}
+.recordon .foottabin{ background: url(../images/icon.jpg) 0 -288px no-repeat;background-size: 32px auto;-webkit-background-size: 32px auto; -moz-background-size: 32px auto; -ms-background-size: 32px auto; -o-background-size: 32px auto;}
